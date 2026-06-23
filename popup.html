@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Analytics Viewer</title>
+  <style>
+    body {
+      width: 420px;
+      padding: 16px;
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+    }
+    
+    #status {
+      padding: 8px;
+      background: #f0f0f0;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+      margin: 4px 0;
+    }
+    
+    #loginBtn {
+      background: #4285f4;
+      color: white;
+    }
+    
+    #loginBtn:hover {
+      background: #3367d6;
+    }
+    
+    #logoutBtn {
+      background: #ea4335;
+      color: white;
+      display: none;
+    }
+    
+    #logoutBtn:hover {
+      background: #d33426;
+    }
+    
+    #fetchBtn {
+      background: #34a853;
+      color: white;
+      margin-top: 8px;
+    }
+    
+    #fetchBtn:hover {
+      background: #2d9248;
+    }
+    
+    #fetchBtn:disabled {
+      background: #a8a8a8;
+      cursor: not-allowed;
+    }
+    
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      font-size: 14px;
+      margin: 8px 0;
+      background: white;
+    }
+    
+    #loading {
+      text-align: center;
+      color: #5f6368;
+      display: none;
+      padding: 10px 0;
+    }
+    
+    #error {
+      color: #d33426;
+      margin-top: 8px;
+      display: none;
+      background: #fce8e6;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    
+    #propertySection {
+      display: none;
+      margin-top: 8px;
+    }
+    
+    #dataSection {
+      display: none;
+      margin-top: 12px;
+      background: white;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+    }
+    
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid #f1f3f4;
+    }
+    
+    .stat:last-child {
+      border-bottom: none;
+    }
+    
+    .stat-label {
+      color: #5f6368;
+    }
+    
+    .stat-value {
+      font-weight: bold;
+      color: #202124;
+    }
+  </style>
+</head>
+<body>
+  <h2>Analytics Viewer</h2>
+  
+  <div id="status">Not connected</div>
+  
+  <button id="loginBtn">Connect to Google</button>
+  <button id="logoutBtn">Logout</button>
+  
+  <div id="propertySection">
+    <label for="propertySelect">Select Property:</label>
+    <select id="propertySelect">
+      <option value="">Loading properties...</option>
+    </select>
+    <button id="fetchBtn">Load Analytics</button>
+  </div>
+  
+  <div id="loading">Loading...</div>
+  
+  <div id="dataSection">
+    <div class="stat">
+      <span class="stat-label">Active Users:</span>
+      <span class="stat-value" id="users">-</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Sessions:</span>
+      <span class="stat-value" id="sessions">-</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Page Views:</span>
+      <span class="stat-value" id="pageViews">-</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Bounce Rate:</span>
+      <span class="stat-value" id="bounceRate">-</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Avg Session:</span>
+      <span class="stat-value" id="avgDuration">-</span>
+    </div>
+  </div>
+  
+  <div id="error"></div>
+  
+  <script src="sql-wasm.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

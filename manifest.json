@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Analytics Viewer",
+  "version": "1.0.0",
+  "description": "View Google Analytics data",
+  
+  "permissions": [
+    "identity",
+    "storage",
+    "unlimitedStorage"
+  ],
+  
+  "host_permissions": [
+    "https://analyticsdata.googleapis.com/*",
+    "https://analyticsadmin.googleapis.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  
+  "oauth2": {
+    "client_id": "52894606037-c81c1icvil33dg5bnpvfa9a2l2jltgn0.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/analytics.readonly"
+    ]
+  },
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "web_accessible_resources": [{
+    "resources": ["sql-wasm.wasm"],
+    "matches": ["<all_urls>"]
+  }]
+}
