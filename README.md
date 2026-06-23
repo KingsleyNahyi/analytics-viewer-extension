@@ -104,7 +104,7 @@ analytics-extension/
 
 
 - GitHub: https://github.com/kingsleynahyi
-- LinkedIn: https://linkedin.com/in/kingsleynahyi
+-Linkedin: www.linkedin.com/in/kingsley-nahyi
 
 ## License
 
